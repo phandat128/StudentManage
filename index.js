@@ -18,16 +18,6 @@ fs.writeFile('studentList.json', json, 'utf8', ()=> {
 })
 */
 
-fs.readFile('studentList.json', 'utf8',  function(err, data){
-    if (err){
-        return console.log('error')
-    }
-    let studentList = jsonToStudent(data)
-    
-    console.log(highestPointStudent(studentList))
-    console.log(lowestPointStudent(studentList))
-})
-
 function jsonToStudent(data){
     const list = JSON.parse(data)
     let studentList = []
@@ -60,3 +50,22 @@ function printList(list){ //print the list of student
         console.log(e)
     }
 }
+
+function notPassStudent(list){
+    console.log('Danh sach sinh vien khong qua mon:')
+    for (let e of list){
+        if (!e.isPass()) console.log(e.name)
+    }
+}
+
+fs.readFile('studentList.json', 'utf8',  function(err, data){
+    if (err){
+        return console.log('error')
+    }
+    let studentList = jsonToStudent(data)
+
+    printList(studentList)
+    console.log(highestPointStudent(studentList))
+    console.log(lowestPointStudent(studentList))
+    console.log(notPassStudent(studentList))
+})
