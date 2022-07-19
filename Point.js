@@ -1,4 +1,4 @@
-class Point{
+export default class Point{
     constructor(maths, phys, chems, eng){
         this.maths = maths
         this.phys = phys
@@ -22,5 +22,3 @@ class Point{
         return this.eng
     }
 }
-
-export default Point

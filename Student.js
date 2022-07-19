@@ -1,6 +1,4 @@
-import Point from './Point'
-
-class Student {
+export default class Student {
     constructor(id, name, age, gender, point, classroom){
         this.id = id
         this.name = name
@@ -11,7 +9,7 @@ class Student {
     }
 
     avaragePoint(){
-        return (this.point.get_maths() + this.point.get_phys() + this.point.get_chems() + this.point.get_eng())
+        return (this.point.get_maths() + this.point.get_phys() + this.point.get_chems() + this.point.get_eng())/4
     }
 
     isPass(){
@@ -27,5 +25,3 @@ class Student {
         return 'F'
     }
 }
-
-export default Student
