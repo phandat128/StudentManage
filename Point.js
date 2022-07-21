@@ -1,4 +1,9 @@
 export default class Point{
+    maths
+    phys
+    chems
+    eng
+
     constructor(maths, phys, chems, eng){
         this.maths = maths
         this.phys = phys
@@ -6,19 +11,19 @@ export default class Point{
         this.eng = eng
     }
 
-    get_maths(){
+    getMaths(){
         return this.maths
     }
 
-    get_phys(){
+    getPhys(){
         return this.phys
     }
 
-    get_chems(){
+    getChems(){
         return this.chems
     }
 
-    get_eng(){
+    getEng(){
         return this.eng
     }
 }

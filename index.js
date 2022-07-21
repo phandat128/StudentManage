@@ -1,6 +1,4 @@
-import Student from './Student.js'
-import Point from './Point.js'
-import fs from 'fs'
+import ReadFile from './ReadFile.js'
 
 /*** create json file
 var student1 = new Student(1232,'Nguyen Van An', 18, 'nam', new Point(7,8.5,8,9), 'KHMT04')
@@ -18,54 +16,4 @@ fs.writeFile('studentList.json', json, 'utf8', ()=> {
 })
 */
 
-function jsonToStudent(data){
-    const list = JSON.parse(data)
-    let studentList = []
-    for(let e of list){
-        let pointObj = Object.assign(new Point(),e.point)
-        let student = Object.assign(new Student(), e)
-        student.point = pointObj
-        studentList.push(student)
-    }
-    return studentList
-}
-
-function lowestPointStudent(list){
-    list.sort((a,b) => {
-        return (a.avaragePoint() - b.avaragePoint())
-    })
-    return `Sinh vien thap diem nhat la: ${list[0].name}`
-}
-
-function highestPointStudent(list){
-    list.sort((a,b) => {
-        return (b.avaragePoint() - a.avaragePoint())
-    })
-    return `Sinh vien cao diem nhat la: ${list[0].name}`
-}
-
-function printList(list){ //print the list of student
-    console.log("Danh sach sinh vien:")
-    for (let e of list){
-        console.log(e)
-    }
-}
-
-function notPassStudent(list){
-    console.log('Danh sach sinh vien khong qua mon:')
-    for (let e of list){
-        if (!e.isPass()) console.log(e.name)
-    }
-}
-
-fs.readFile('studentList.json', 'utf8',  function(err, data){
-    if (err){
-        return console.log('error')
-    }
-    let studentList = jsonToStudent(data)
-
-    printList(studentList)
-    console.log(highestPointStudent(studentList))
-    console.log(lowestPointStudent(studentList))
-    console.log(notPassStudent(studentList))
-})
+new ReadFile().handle('studentList.json')

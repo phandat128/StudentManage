@@ -1,19 +1,23 @@
-export default class Student {
+import Person from './Person.js'
+
+export default class Student extends Person{
+    id
+    point
+    classroom
+
     constructor(id, name, age, gender, point, classroom){
+        super(name, age, gender)
         this.id = id
-        this.name = name
-        this.age = age
-        this.gender = gender
         this.point = point
         this.classroom = classroom
     }
 
     avaragePoint(){
-        return (this.point.get_maths() + this.point.get_phys() + this.point.get_chems() + this.point.get_eng())/4
+        return (this.point.getMaths() + this.point.getPhys() + this.point.getChems() + this.point.getEng())/4
     }
 
     isPass(){
-        return (this.point.maths > 4) && (this.point.phys > 4) && (this.point.chems > 4) && (this.point.eng > 4)
+        return (this.point.getMaths() > 4) && (this.point.getPhys() > 4) && (this.point.getChems() > 4) && (this.point.getEng() > 4)
     }
 
     letterPoint(){
