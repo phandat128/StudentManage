@@ -17,7 +17,7 @@ export default class Student extends Person{
     }
 
     isPass(){
-        return (this.point.getMaths() > 4) && (this.point.getPhys() > 4) && (this.point.getChems() > 4) && (this.point.getEng() > 4)
+        return (this.point.getMaths() >= 4) && (this.point.getPhys() >= 4) && (this.point.getChems() >= 4) && (this.point.getEng() >= 4)
     }
 
     letterPoint(){

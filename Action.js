@@ -43,5 +43,11 @@ export default class Action {
         }
         return "-----------"
     }
-    
+
+    classFilter(list, className){ // print list of students in class
+        for (let e of list){
+            if (e.classroom === className) console.log(e.name)
+        }
+        return "-----------"
+    }    
 }
