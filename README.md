@@ -1,2 +1,2 @@
 # StudentManage
-Object Oriented Programming
+Exercise in Bootcamp about Object Oriented Programming with JavaScript
